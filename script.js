@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const menuItem = menuItems[i];
 
         menuItem.addEventListener('click', function () {
+            // o sugestie: variabile, constante, selectii prin urmare, este ok sa ti le salvezi la inceputul fisierului, pentru ca sunt elemente statice ce le ai in pagina ce nu se modifica, prin urmare nu e necesara selectia la fiecare click
             const orderContainer = document.getElementsByClassName("order-container");
             if (!orderContainer[0].classList.contains('hidden')) {
                 orderContainer[0].classList.add('hidden');
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             const logoBoundaryWrapper = document.getElementsByClassName("logo-boundary-wrapper");
             console.log('logoBoundaryWrapper', logoBoundaryWrapper);
             for (let m = 1; m < menuItems.length; m++) {
+                // nu folosesti acest logoPAge niciunde, nu sunt convinsa ca aveai nevoie de for-ul acesta ca sa arati logoBoundaryWrapper. gresesc eu?
                 const logoPage = menuItems[m];
                 if (logoBoundaryWrapper[0].classList.contains('hidden')) {
                     logoBoundaryWrapper[0].classList.remove("hidden");
@@ -63,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         });
         menuItems[0].addEventListener('click', function () {
+            // atentie, ai de mai multe ori aceeasi selectie, de exemplu si pe randurile 48 si 90. nu ai nevoie decat o singura data de selectia respectiva, apoi o folosesti unde ai nevoie
             const logoBoundaryWrapper = document.getElementsByClassName("logo-boundary-wrapper");
             console.log('logoBoundaryWrapper', logoBoundaryWrapper);
             logoBoundaryWrapper[0].classList.add("hidden");
