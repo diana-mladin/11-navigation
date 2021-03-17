@@ -1,85 +1,53 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-    const menuItems = document.getElementsByClassName("menu-item");
-    console.log('menuItems', menuItems);
+$(function () {
+    const orderContainer = $(".order-container");
+    console.log('orderContainer', orderContainer);
 
-    const orderContainer = document.getElementsByClassName("order-container");
-    console.log('orderContainer :  ', orderContainer);
-
-    const logoBoundaryWrapper = document.getElementsByClassName("logo-boundary-wrapper");
+    const logoBoundaryWrapper = $(".logo-boundary-wrapper");
     console.log('logoBoundaryWrapper', logoBoundaryWrapper);
 
-    const navbarContentWrapper = document.getElementsByClassName("navbar-content-wrapper");
-    console.log('navbarContentWrapper', navbarContentWrapper);
+    const menuItem = $('ul').find('a');
 
-    for (let i = 0; i < menuItems.length; i++) {
-        const menuItem = menuItems[i];
+    const newNavbar = $('.fade-in-wrapper');
 
-        menuItem.addEventListener('click', function () {
-            if (!orderContainer[0].classList.contains('hidden')) {
-                orderContainer[0].classList.add('hidden');
-            }
+    menuItem.click(function (e) {
+        console.log($(this).data('content'));
 
-            for (let j = 0; j < menuItems.length; j++) {
-                if (menuItems[j].classList.contains('selected')) {
-                    menuItems[j].classList.remove("selected");
-                } else {
-                    continue;
-                }
-            }
-            menuItem.classList.add("selected");
+        orderContainer.addClass('hidden');
 
-            const dataContent = menuItem.dataset.content;
-            console.log('dataContent', dataContent);
-            const contentElements = document.getElementsByClassName("content");
-            for (let k = 0; k < contentElements.length; k++) {
-                if (contentElements[k].classList.contains('hidden')) {
-                    continue;
-                } else {
-                    contentElements[k].classList.add("hidden");
-                }
-            }
-            document.getElementsByClassName(dataContent)[0].classList.remove("hidden");
+        menuItem.removeClass('selected');
+        $(this).addClass('selected');
 
-            const dataLogo = menuItem.dataset.logo;
-            console.log('dataLogo', dataLogo);
-            const logoElements = document.getElementsByClassName("logo");
-            for (let l = 0; l < logoElements.length; l++) {
-                if (logoElements[l].classList.contains('hidden')) {
-                    continue;
-                } else {
-                    logoElements[l].classList.add("hidden");
-                }
-            }
-            document.getElementsByClassName(dataLogo)[0].classList.remove("hidden");
+        const contentElements = $('.content');
+        contentElements.addClass('hidden');
+        $(`.${$(this).data('content')}`).removeClass('hidden');
 
-            if (logoBoundaryWrapper[0].classList.contains('hidden')) {
-                logoBoundaryWrapper[0].classList.remove("hidden");
-            }
+        const logoElements = $('.logo');
+        logoElements.addClass('hidden');
+        $(`.${$(this).data('logo')}`).removeClass('hidden');
 
-            for (let m = 1; m < menuItems.length; m++) {
-                const navbar = menuItems[m];
-                if (navbarContentWrapper[0].classList.contains('hidden')) {
-                    navbarContentWrapper[0].classList.remove("hidden");
-                }
-            }
-        });
-        menuItems[0].addEventListener('click', function () {
-            logoBoundaryWrapper[0].classList.add("hidden");
+        logoBoundaryWrapper.removeClass("hidden");
+        logoBoundaryWrapper.fadeIn('slow');
 
-            navbarContentWrapper[0].classList.add("hidden");
-        });
-    }
-    const orderDetails = document.getElementsByClassName("order-details");
-    console.log('orderDetails', orderDetails);
-    orderDetails[0].addEventListener('click', function () {
-        orderContainer[0].classList.remove('hidden');
+        newNavbar.removeClass('hidden');
+        newNavbar.fadeIn('slow');
+    });
+    $('.menu-item.selected').click(function () {
+        logoBoundaryWrapper.hide();
+        newNavbar.hide();
+    });
+    const orderDetails = $(".order-details");
+    orderDetails.click(function () {
+        console.log($(this).data('order'));
 
-        const yourOrders = document.getElementsByClassName("orders-container");
-        console.log('yourOrders :  ', yourOrders)
-        yourOrders[0].classList.add('hidden');
+        orderContainer.removeClass('hidden');
 
-        logoBoundaryWrapper[0].classList.remove("hidden");
+        const yourOrders = $(".your-orders-container");
+        yourOrders.addClass('hidden');
 
-        navbarContentWrapper[0].classList.remove("hidden");
+        logoBoundaryWrapper.removeClass('hidden');
+        logoBoundaryWrapper.fadeIn('slow');
+
+        newNavbar.removeClass('hidden');
+        newNavbar.fadeIn('slow');
     });
 });

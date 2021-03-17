@@ -93,7 +93,7 @@ header div {
     font-weight: 900;
 }
 
-.orders-container,
+.your-orders-container,
 .status-container,
 .settings-container,
 .payment-container {
@@ -130,7 +130,7 @@ header div {
 }
 
 /* SECTION YOUR ORDERS */
-.orders-container {
+.your-orders-container {
     z-index: 4;
 }
 

@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2f6ccd0629.js" crossorigin="anonymous"></script>
+    <script src="bundles/jquery/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -44,7 +45,7 @@
                     </div>
                 </div>
                 <ul>
-                    <li><a href="#" class="menu-item selected" data-content="orders-container"
+                    <li><a href="#" class="menu-item selected" data-content="your-orders-container"
                             data-logo="logo-vip-wrapper">Your Orders</a></li>
                     <li><a href="#" class="menu-item" data-content="status-container"
                             data-logo="logo-gold-wrapper">Reward Status</a></li>
@@ -57,18 +58,20 @@
             </aside>
 
             <section class="content-wrapper">
-                <nav class="navbar-wrapper">
-                    <div class="navbar-content-wrapper hidden">
-                        <a href="">
-                            <div>SHOP</div>
-                        </a>
-                        <a href=""><i class="fas fa-search"></i></a>
-                        <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        <a href=""><i class="fas fa-sign-in-alt"></i></a>
-                    </div>
-                </nav>
+                <div class="fade-in-wrapper hidden">
+                    <nav class="navbar-wrapper">
+                        <div class="navbar-content-wrapper">
+                            <a href="">
+                                <div>SHOP</div>
+                            </a>
+                            <a href=""><i class="fas fa-search"></i></a>
+                            <a href=""><i class="fas fa-shopping-cart"></i></a>
+                            <a href=""><i class="fas fa-sign-in-alt"></i></a>
+                        </div>
+                    </nav>
+                </div>
 
-                <div class="content orders-container">
+                <div class="content your-orders-container">
                     <h1>Your Orders</h1>
                     <div class="flex-orders-wrapper">
                         <div class="product-img-wrapper">
