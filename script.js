@@ -1,3 +1,4 @@
+// trebuie sa te obisnuiesti sa cureti putin console.log-urile astea pentru ca incarca foarte tare; codul este greu de filtrat asa
 $(function () {
     const orderContainer = $(".order-container");
     console.log('orderContainer', orderContainer);
@@ -31,6 +32,7 @@ $(function () {
         newNavbar.removeClass('hidden');
         newNavbar.fadeIn('slow');
     });
+    // nu inteleg foarte bine ce ar trebui sa faca acest event; pe toate elementele vei avea .selected la un moment dat, nu?
     $('.menu-item.selected').click(function () {
         logoBoundaryWrapper.hide();
         newNavbar.hide();
